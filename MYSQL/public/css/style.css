@@ -1,7 +1,21 @@
 * {
     font-family: Helvetica, sans-serif;
+    margin: 0;
+  }
+  #navbar{
+    border-bottom: 1px solid #ccc;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+  #navbar ul{
+   display: flex;
+   list-style: none;   
   }
   
+  #navbar ul li {
+   margin-left: 1em; 
+    
+   }
   h1 {
     text-align: center;
   }
@@ -40,4 +54,25 @@
   
   .bold {
     font-weight: bold;
+  }
+
+  /* book */
+
+  #book-page{
+    padding: 2em;
+  }
+
+ .container{
+    text-align: center;
+  }
+
+
+  .actions{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .actions a{
+    margin-right: 1em;
   }
