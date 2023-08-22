@@ -28,9 +28,10 @@ app.post('/books/insertbook', (req,res)=>{
     const title = req.body.title
     const pageqty = req.body.pageqty
 
-    const query = `INSERT INTO books (title, pageqty) VALUES ('${title}', '${pageqty}')`
+    const query = `INSERT INTO books (??,??) VALUES (?,?)`
+    const data = ['title','pageqty',title,pageqty]
 
-    conn.query(query, function(err){
+    conn.query(query,data, function(err){
         if (err){
             console.log(err)
         }
@@ -53,8 +54,9 @@ app.get('/books', (req,res)=> {
 })
 app.get('/books/:id', (req,res) => {
     const id = req.params.id
-    const query = `SELECT * FROM books WHERE id = ${id}`
-    conn.query(query, function(err,data){
+    const query = `SELECT * FROM books WHERE ?? = ?`
+    const data = ['id', id]
+    conn.query(query, data,function(err,data){
         if (err){
             console.log(err)
             return
@@ -67,8 +69,10 @@ app.get('/books/:id', (req,res) => {
 
 app.get('/books/edit/:id', (req,res) => {
     const id = req.params.id
-    const query = `SELECT * FROM books WHERE id = ${id}`
-    conn.query(query, function(err,data){
+    const query = `SELECT * FROM books WHERE ?? = ?`
+    const data = ['id', id]
+
+    conn.query(query, data,function(err,data){
         if (err){
             console.log(err)
             return
@@ -99,7 +103,8 @@ app.post('/books/remove/:id', (req,res)=> {
     const id = req.params.id
 
 
-    const query = `DELETE * FROM books WHERE id = ${id}`
+    const query = `DELETE * FROM books WHERE ?? = ?`
+    const data = ['id',id]
     
   conn.query(query, function (err) {
     if (err) {
