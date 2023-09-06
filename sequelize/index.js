@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const conn = require('./db/conn')
 
 const User = require('./models/User')
+const Address = require('./models/Address')
 
 const app = express()
 
@@ -112,7 +113,8 @@ app.get('/', async (req, res)=> {
 
   // Criar tabelas e rodar o app
   conn
-    .sync()
+  .sync()  
+  //.sync({force:true})
     .then(() => {
       app.listen(3000)
     })
